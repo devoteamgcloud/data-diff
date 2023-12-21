@@ -62,7 +62,7 @@ class Dialect(
         return f'"{s}"'
 
     def to_string(self, s: str):
-        return f"cast({s} as varchar(1024))"
+        return f"cast({s} as varchar(2048))"
 
     def limit_select(
         self,
@@ -92,7 +92,7 @@ class Dialect(
     def type_repr(self, t) -> str:
         try:
             return {
-                str: "VARCHAR(1024)",
+                str: "VARCHAR(2048)",
             }[t]
         except KeyError:
             return super().type_repr(t)
